@@ -17,6 +17,7 @@ export class HomePage {
   //Array que armazena os números;
   recebeTresNumeros: number[] = [];
 
+  //Ordena os números do menor para o maior
   ordemCrescente(){
     //Inicia o array vazio antes de ordenar os números
     this.recebeTresNumeros = [];
@@ -76,6 +77,7 @@ export class HomePage {
     this.recebeTresNumeros.push(primeiro, segundo, terceiro);
   }
 
+  //Ordena os números do maior para o menor
   ordemDecrescente(){
     //Inicia o array vazio antes de ordenar os números
     this.recebeTresNumeros = [];
@@ -135,6 +137,7 @@ export class HomePage {
     this.recebeTresNumeros.push(terceiro, segundo, primeiro);
   }
 
+  //Limpa os resultados
   limpar(){
     this.recebeTresNumeros = [];
     this.numero01 = 0;
