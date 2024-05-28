@@ -71,7 +71,8 @@ export class HomePage {
         primeiro = this.numero01
       }
     }
-
+    
+    //Insere os números dentro do array de acordo com a ordem crescente 
     this.recebeTresNumeros.push(primeiro, segundo, terceiro);
   }
 
@@ -130,6 +131,7 @@ export class HomePage {
       }
     }
 
+    //Insere os números dentro do array de acordo com a ordem decrescente 
     this.recebeTresNumeros.push(terceiro, segundo, primeiro);
   }
 
