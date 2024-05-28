@@ -1,35 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>usuario</ion-title>
+    <ion-title>Lista de Números</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">usuario</ion-title>
+      <ion-title size="large">Lista de Números</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
     <ion-list>
       <ion-item>
-        <ion-input type="number" [(ngModel)]="quantNumeros">Digite a quantidade de números que deseja inserir:</ion-input>
+        <ion-input type="number" [(ngModel)]="quantNumeros" [disabled]="quantNumerosDesativada">Digite a quantidade de números que deseja inserir:</ion-input>
 
         <div *ngIf="!quantNumerosDesativada">
           <ion-button (click)="ativarNumero()">OK</ion-button>
         </div>
       </ion-item>
 
-      <ion-item [disabled]="!numeroAtivado">
-        <ion-input type="number" [(ngModel)]="numero">Número:</ion-input>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="numero" [disabled]="!numeroAtivado">Digite o número que deseja inserir:</ion-input>
       </ion-item>
 
       <div *ngIf="recebeNumeros.length < quantNumeros && numeroAtivado ">
         <ion-button (click)="inserirNumeros()">Inserir</ion-button>
       </div>
 
-      <div *ngIf="recebeNumeros.length == quantNumeros && quantNumeros != 0">
+      <div *ngIf="recebeNumeros.length == quantNumeros && quantNumeros !== 0">
         <p>Lista de números (ordem normal)</p>
         <ion-item *ngFor="let arrayNumeros of recebeNumeros">
           {{ arrayNumeros }}

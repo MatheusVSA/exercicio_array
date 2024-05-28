@@ -17,7 +17,7 @@ export class UsuarioPage implements OnInit {
   recebeNumeros:number[] = [];
   numerosInvertidos:number[] = [];
   quantNumerosDesativada:boolean = false;
-  numeroAtivado:boolean = true;
+  numeroAtivado:boolean = false;
 
   //Essa função organiza a ordem de interação que o usuário deve seguir
   ativarNumero() {
@@ -28,7 +28,8 @@ export class UsuarioPage implements OnInit {
   //Imsere os numeros dentro do array conforme são digitados
   inserirNumeros(){
     if(this.quantNumeros > this.recebeNumeros.length){
-      this.recebeNumeros.push(this.numero);
+      this.recebeNumeros.push(this.numero);   //adiciona o número informado no array
+      this.numero = 0;    //Limpa o campo de entrad apos a inserção
       console.log("Número", this.numero, "inserido com sucesso!")
 
     }
