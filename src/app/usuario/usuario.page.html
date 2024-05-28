@@ -12,23 +12,42 @@
   </ion-header>
 
   <div id="container">
-    <strong>Digite a quantidade de números que deseja inserir:</strong>
+    <ion-list>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="quantNumeros">Digite a quantidade de números que deseja inserir:</ion-input>
 
-    <ion-input type="number" [(ngModel)]="quantNumeros">Quantidade:</ion-input>
-
-    <ion-input type="number" [(ngModel)]="numero">Número:</ion-input>
-
-    <div *ngIf="recebeNumeros.length < quantNumeros">
-      <ion-button (click)="inserirNumeros()">Inserir</ion-button>
-    </div>
-
-    <div *ngIf="recebeNumeros.length == quantNumeros && quantNumeros != 0">
-      <p>Lista de números</p>
-      <ion-item *ngFor="let arrayNumeros of recebeNumeros">
-        {{ arrayNumeros }}
+        <div *ngIf="!quantNumerosDesativada">
+          <ion-button (click)="ativarNumero()">OK</ion-button>
+        </div>
       </ion-item>
-    </div>
-  
+
+      <ion-item [disabled]="!numeroAtivado">
+        <ion-input type="number" [(ngModel)]="numero">Número:</ion-input>
+      </ion-item>
+
+      <div *ngIf="recebeNumeros.length < quantNumeros && numeroAtivado ">
+        <ion-button (click)="inserirNumeros()">Inserir</ion-button>
+      </div>
+
+      <div *ngIf="recebeNumeros.length == quantNumeros && quantNumeros != 0">
+        <p>Lista de números (ordem normal)</p>
+        <ion-item *ngFor="let arrayNumeros of recebeNumeros">
+          {{ arrayNumeros }}
+        </ion-item>
+
+        <div *ngIf="numerosInvertidos.length == 0">
+          <ion-button (click)="ordemInversa()">Ordem inversa</ion-button>
+        </div>
+      </div>
+
+      <div *ngIf="numerosInvertidos.length > 0">
+        <p>Lista de números (ordem inversa)</p>
+
+        <ion-item *ngFor="let arrayNumeros of numerosInvertidos">
+          {{ arrayNumeros }}
+        </ion-item>
+      </div>
+    </ion-list>
   </div>
 
 </ion-content>

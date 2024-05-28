@@ -15,7 +15,17 @@ export class UsuarioPage implements OnInit {
   quantNumeros:number = 0;
   numero:number = 0;
   recebeNumeros:number[] = [];
+  numerosInvertidos:number[] = [];
+  quantNumerosDesativada:boolean = false;
+  numeroAtivado:boolean = true;
 
+  //Essa função organiza a ordem de interação que o usuário deve seguir
+  ativarNumero() {
+    this.quantNumerosDesativada = true;
+    this.numeroAtivado = true
+  }
+
+  //Imsere os numeros dentro do array conforme são digitados
   inserirNumeros(){
     if(this.quantNumeros > this.recebeNumeros.length){
       this.recebeNumeros.push(this.numero);
@@ -26,4 +36,24 @@ export class UsuarioPage implements OnInit {
       console.log("Todos os números foram inseridos!");
     }
   }
+
+  ordemInversa(){
+    //Variáveis auxiliares
+    let primeiro = 0;
+    let ultimo = this.recebeNumeros.length - 1;
+    
+    //Faz uma copia do array recebeNumeros para o array numerosInvertidos
+    this.numerosInvertidos = [...this.recebeNumeros]
+
+    while(primeiro < ultimo ){
+      let temp = this.numerosInvertidos[primeiro];
+      this.numerosInvertidos[primeiro] = this.numerosInvertidos[ultimo];
+      this.numerosInvertidos[ultimo] = temp;
+
+      primeiro++;
+      ultimo--;
+    }
+    console.log("Números na ordem inversa:", this.recebeNumeros);
+  }
+
 }
