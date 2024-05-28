@@ -14,7 +14,31 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list>
+      <p align="left">Insira três números:</p><br>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="numero01">Primeiro:</ion-input>
+        <ion-input type="number" [(ngModel)]="numero02">Segundo:</ion-input>
+        <ion-input type="number" [(ngModel)]="numero03">Terceiro:</ion-input>
+      </ion-item>
+
+      <div>
+        <ion-button (click)="ordemCrescente()">Ordem Crescente</ion-button>
+        <ion-button (click)="ordemDecrescente()">Ordem Decrescente</ion-button>
+      </div>
+      
+
+      <div *ngIf="recebeTresNumeros.length > 0">
+        <ion-list>
+          <ion-item *ngFor="let numero of recebeTresNumeros">
+            {{ numero }}
+          </ion-item>
+        </ion-list>
+        <ion-button (click)="limpar()"> Limpar </ion-button>
+      </div>
+
+
+    </ion-list>
   </div>
 </ion-content>
