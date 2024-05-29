@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'usuario',
     loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
+  {
+    path: 'fibonacci',
+    loadChildren: () => import('./fibonacci/fibonacci.module').then( m => m.FibonacciPageModule)
+  },
 ];
 
 @NgModule({

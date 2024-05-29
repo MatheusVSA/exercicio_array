@@ -11,8 +11,12 @@ export class UsuarioPage implements OnInit {
   constructor(private router: Router) { }
 
   //função do butão que navega entre as páginas
-  navegarPagina() {
+  navegarPagina01() {
     this.router.navigate(['/home']);
+  }
+  //função do butão que navega entre as páginas
+  navegarPagina02() {
+    this.router.navigate(['/fibonacci']);
   }
 
   ngOnInit() {
