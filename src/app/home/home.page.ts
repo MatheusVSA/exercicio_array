@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  //função do butão que navega entre as páginas
+  navegarPagina() {
+    this.router.navigate(['/usuario']);
+  }
 
 //Iniciando variáveis;
   numero01: number = 0;

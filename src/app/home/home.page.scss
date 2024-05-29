@@ -25,3 +25,17 @@
 #container a {
   text-decoration: none;
 }
+
+.floating-button {
+  position: fixed;
+  bottom: -150px;
+  right: 20px;
+  z-index: 100; /* Certifique-se de que o botão fique acima de outros conteúdos */
+  --border-radius: 30%;
+  --background: var(--ion-color-primary);
+  --color: rgb(9, 1, 1);
+}
+
+.floating-button ion-icon {
+  margin: 2px;
+}

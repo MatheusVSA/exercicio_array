@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -7,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  //função do butão que navega entre as páginas
+  navegarPagina() {
+    this.router.navigate(['/home']);
+  }
 
   ngOnInit() {
   }
 
+  //Inicialização das variáveis e arrays
   quantNumeros:number = 0;
   numero:number = 0;
   recebeNumeros:number[] = [];
