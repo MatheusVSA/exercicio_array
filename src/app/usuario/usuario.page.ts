@@ -64,4 +64,13 @@ export class UsuarioPage implements OnInit {
     console.log("Números na ordem inversa:", this.recebeNumeros);
   }
 
+  limpar(){
+    this.quantNumeros = 0;
+    this.numero = 0;
+    this.recebeNumeros = [];
+    this.numerosInvertidos = [];
+    this.quantNumerosDesativada = false;
+    this.numeroAtivado = false;
+  }
+
 }
